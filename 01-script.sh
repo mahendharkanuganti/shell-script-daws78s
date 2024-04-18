@@ -1,7 +1,8 @@
 #!/bin/bash
 
-MOVIES=("RRR" "DJ" "salaar")
+No1=$1
+No2=$2
 
-echo "The first movie name is ${MOVIES[0]}"
-echo "The second movie name is ${MOVIES[1]}"
-echo "The third movie name is ${MOVIES[2]}"
+SUM=$(($No1+$No2))
+
+echo "The sum of No1 and No2 is: $SUM"

@@ -45,7 +45,7 @@ VALIDATE $? "Starting mysqld service"
 mysql -h db.daws78s.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
 if [ $? -ne 0 ]
 then
-    mysql_secure_installation --set-root-pass {db_root_password} &>>LOGFILE
+    mysql_secure_installation --set-root-pass ${db_root_password} &>>LOGFILE
     VALIDATE $? "Setting the root password for mysql"
 else
     echo -e "Mysql DB root password is already setup..&Y SKIPPING &N"

@@ -57,7 +57,7 @@ VALIDATE $? "Extracting the code"
 npm install &>>$LOGFILE
 VALIDATE $? "Installing the nodejs dependencies"
 
-cp /d/devops-daws-78s/shell-script-daws78s/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /home/ec2-user/shell-script-daws78s/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "Copying the backend service file to ec2 instance"
 
 systemctl daemon-reload &>>$LOGFILE

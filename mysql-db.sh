@@ -12,10 +12,10 @@ N="\e[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2...FAILURE"
+        echo -e "$2...$R FAILURE $N"
         exit 1
     else
-        echo -e "$2...SUCCESS"
+        echo -e "$2...$G SUCCESS $N"
     fi
 }
 
@@ -24,7 +24,7 @@ then
     echo "Please execute the script with root user"
     exit 1
 else
-    echo "You're already Super user"
+    echo -e "$G You're already Super user $N"
 fi
 
 

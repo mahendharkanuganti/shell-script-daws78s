@@ -12,10 +12,10 @@ N="\e[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2...FAILURE"
+        echo -e "$2...$R FAILURE $N"
         exit 1
     else
-        echo -e "$2...SUCCESS"
+        echo -e "$2...$G SUCCESS $N"
     fi
 }   
 
@@ -24,7 +24,7 @@ then
     echo "Please run the script with root access"
     exit 1
 else
-    echo "You're already super user"
+    echo -e "$G You're already super user $N"
 fi
 
 dnf install nginx -y &>>LOGFILE

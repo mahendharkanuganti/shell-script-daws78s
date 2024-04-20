@@ -42,7 +42,7 @@ VALIDATE $? "Starting mysqld service"
 #mysql_secure_installation --set-root-pass ExpenseApp@1 &>>LOGFILE
 #VALIDATE $? "Setting the root password for mysql"
 
-mysql -h db.daws78s.online -uroot -p${db_root_password} -e 'show databases;' &>>$LOGFILE
+mysql -h db.mahidevops.cloud -uroot -p${db_root_password} -e 'show databases;' &>>$LOGFILE
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ${db_root_password} &>>LOGFILE

@@ -42,7 +42,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>LOGFILE
 VALIDATE $? "Extracting the code"
 
-cp /d/devops-daws-78s/shell-script-daws78s/expense.conf /etc/nginx/default.d/expense.conf &>>LOGFILE
+cp /home/ec2-user/shell-script-daws78s/expense.conf /etc/nginx/default.d/expense.conf &>>LOGFILE
 VALIDATE $? "Copying the code"
 
 systemctl restart nginx &>>LOGFILE

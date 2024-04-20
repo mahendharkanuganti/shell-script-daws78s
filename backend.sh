@@ -4,14 +4,20 @@ USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+echo "Enter the DB Passoword:"
+read db_root_password
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2.... FAILURE"
+        echo -e "$2....$R FAILURE $N"
         exit 1
     else
-        echo -e "$2... SUCCESS"
+        echo -e "$2...$G SUCCESS $N"
     fi
 }
 
@@ -20,7 +26,7 @@ then
     echo "Please run the script with root access"
     exit 1
 else
-    echo "you're already super user"
+    echo -e "$G you're already super user $N"
 fi
 
 dnf module disable nodejs -y &>>$LOGFILE
@@ -38,7 +44,7 @@ then
     useradd expense &>>$LOGFILE
     VALIDATE $? "Creating Expense user"
 else
-    echo "Expense user was already created..SKIPPING"
+    echo "Expense user was already created..$Y SKIPPING $N"
 fi
 
 mkdir -p /app &>>$LOGFILE
@@ -72,7 +78,7 @@ VALIDATE $? "Enabling Backend service"
 dnf install mysql -y &>>LOGFILE
 VALIDATE $? "Installing Mysql Client"
 
-mysql -h db.mahidevops.cloud -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.mahidevops.cloud -uroot -p${db_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "Loading the schema"
 
 systemctl restart backend &>>$LOGFILE

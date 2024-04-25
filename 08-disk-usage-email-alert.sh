@@ -8,6 +8,7 @@
 
 THRESHOLD=5
 DISK_USAGE=$(df -hTP | grep -i xfs)
+MESSAGE=""
 
 while IFS= read -r line
 do
@@ -15,7 +16,7 @@ do
     FILE_SYSTEM=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -gt $THRESHOLD ]
     then
-        echo "The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE"
+        MESSAGE="The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE"
     fi
 done <<< $DISK_USAGE
 

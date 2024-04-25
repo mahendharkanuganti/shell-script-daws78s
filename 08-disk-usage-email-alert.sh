@@ -16,7 +16,7 @@ do
     FILE_SYSTEM=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -gt $THRESHOLD ]
     then
-        MESSAGE="The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE"
+        MESSAGE+="The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE"
     fi
 done <<< $DISK_USAGE
 
@@ -25,6 +25,7 @@ echo -e "Message: \n$MESSAGE"
 
 
 #Commands explanation:
+# echo -e "Message: \n$MESSAGE" ==> -e --> Enables interpretation of backslash escapes in the echo command
 # awk -F " " '{print $6}'  --> -F - is field separator, $6 is the 6th column from the output.
 # $NF - nth column or the last column
 # cut -d "%" -f1  --> -d is delimeter, We are removing the % from the output from the field 1.

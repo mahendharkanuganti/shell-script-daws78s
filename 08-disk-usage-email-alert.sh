@@ -20,7 +20,7 @@ do
     fi
 done <<< $DISK_USAGE
 
-echo -e "Message: \n$MESSAGE"
+echo "Message: \n$MESSAGE"
 
 
 

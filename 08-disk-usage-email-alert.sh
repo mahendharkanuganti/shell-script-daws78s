@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script will display the file system and its usage which is more than threshold.
+#This script will display the file system and its usage which is more than threshold. and send email to the mentioned mail with alert details.
 #Steps:
 #1. disaply all file systems
 #2. show the usage in numbers without %, so that we can easily compare.
@@ -36,3 +36,5 @@ echo "$MESSAGE" | mail -s "Disk Usage Alrt" mahendhar501@gmail.com
 # -r: Prevents backslash escapes from being interpreted. Useful when reading file paths or lines that may contain backslashes.
 # line: The variable where the read line is stored.
 # done <<< $DISK_USAGE    --> The command output of variable $disk_usage will be injected to while loop as an input.
+# MESSAGE+=  --> here + is to continuosly get into loop. If we did not specify the + here, we will only get one line of output.
+# If we specify +, we will get all the required line of output from the input.

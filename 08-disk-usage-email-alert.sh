@@ -16,11 +16,11 @@ do
     FILE_SYSTEM=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -gt $THRESHOLD ]
     then
-        MESSAGE+="The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE"
+        MESSAGE+="The $FILE_SYSTEM usage is above $THRESHOLD, current usage is $USAGE \n"
     fi
 done <<< $DISK_USAGE
 
-echo -e "Message: \n$MESSAGE\n"
+echo -e "Message: \n$MESSAGE"
 
 
 

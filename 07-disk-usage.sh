@@ -20,4 +20,12 @@ done <<< $DISK_USAGE
 #1. disaply all file systems
 #2. show the usage in numbers without %, so that we can easily compare.
 #3. sort out which is consuming and above threshold
-#4. 
+
+#Commands explanation:
+# awk -F " " '{print $6}'  --> -F - is field separator, $6 is the 6th column from the output.
+# $NF - nth column or the last column
+# cut -d "%" -f1  --> -d is delimeter, We are removing the % from the output from the field 1.
+# example if output is 32%, then after cut command it is just 32 only.
+# IFS = Internal Field Separator
+# -r: Prevents backslash escapes from being interpreted. Useful when reading file paths or lines that may contain backslashes.
+# line: The variable where the read line is stored.

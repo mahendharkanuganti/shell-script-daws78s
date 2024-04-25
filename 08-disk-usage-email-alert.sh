@@ -22,6 +22,8 @@ done <<< $DISK_USAGE
 
 echo -e "Message: \n$MESSAGE"
 
+echo "$MESSAGE" | mail -s "Disk Usage Alrt" mahendhar501@gmail.com
+
 
 
 #Commands explanation:
